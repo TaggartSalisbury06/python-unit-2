@@ -62,6 +62,17 @@ cupcake_list = [
     cupcake5
 ]
 
+def add_cupcake(file, cupcake):
+  with open(file, "a", newline="\n") as csvfile:
+    fieldnames = ["size", "name", "price", "flavor", "frosting", "sprinkles", "filling"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    for cupcake in cupcakes:
+      if hasattr(cupcake, "filling"):
+        writer.writerow({"size": cupcake.size, "name": cupcake.name, "price": cupcake.price, "flavor": cupcake.flavor, "frosting": cupcake.frosting, "filling": cupcake.filling, "sprinkles": cupcake.sprinkles})
+      else:
+        writer.writerow({"size": cupcake.size, "name": cupcake.name, "price": cupcake.price, "flavor": cupcake.flavor, "frosting": cupcake.frosting, "sprinkles": cupcake.sprinkles})
+
 def new_csv(file, cupcakes):
   with open(file, "w", newline = "\n") as csvfile:
     fieldnames = ["size", "name", "price", "flavor", "frosting", "sprinkles", "filling"]
@@ -76,6 +87,20 @@ def new_csv(file, cupcakes):
         writer.writerow({"size": cupcake.size, "name": cupcake.name, "price": cupcake.price, "flavor": cupcake.flavor, "frosting": cupcake.frosting, "sprinkles": cupcake.sprinkles})
 
 new_csv("sample.csv", cupcake_list)
+
+def get_all_cupcakes(file):
+  with open(file) as csvfile:
+    reader = csv.DictReader(csvfile)
+    reader = list(reader)
+    return reader
+
+def get_a_cupcake(file):
+  for cupcake in get_cupcake(file):
+    if cupcake["name"] == name:
+      return cupcake
+  return None
+
+
 
 def read_csv(file):
   with open(file) as csvfile:
