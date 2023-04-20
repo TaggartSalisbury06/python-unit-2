@@ -1,18 +1,49 @@
 /* Default styles for all elements */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+body {
+  background-color: #FEF794;
+}
+
+header {
+  text-align: center;
+}
+
+header a {
+  color: black;
+}
+
+header a:hover {
+  color: #CE97F9;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #91FBB0;
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  color: #Bffaf8;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
 }
 
 /* Styles for the cupcake container */
 .cupcake-container {
-  color: pink;
-  background-color: #000000;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
+  color: #Bffaf8;
+  background-color: #CE97F9;
+  /* border: 1px solid #ddd; */
+  border-radius: 10%;
+  margin: 20px 500px;
+  padding: 100px;
   text-align: center;
 }
 
@@ -29,7 +60,7 @@
 }
 
 /* Styles for the cupcake price */
-.cupcake-container h4 b {
+.cupcake-container h4 b{
   color: #f00;
   font-size: 20px;
 }

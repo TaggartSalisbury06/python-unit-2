@@ -10,13 +10,16 @@ def home():
   order_total = round(sum([float(x["price"]) for x in get_all_cupcakes("order.csv")]), 2)
   return render_template("index.html", cupcakes = get_all_cupcakes("cupcakes.csv"), items_num = len(get_all_cupcakes("order.csv")), order_total = order_total)
 
-@app.route("/cupcakes")
-def all_cupcakes():
-  return render_template("cupcakes.html")
 
-@app.route("/individual-cupcakes")
-def individual_cupcakes():
-  return render_template("individual-cupcakes.html")
+@app.route("/individual-cupcakes/<name>")
+def individual_cupcakes(name):
+  cupcake = find_cupcake("cupcakes.csv", name)
+
+  if cupcake:
+    return render_template("individual-cupcakes.html", cupcake=cupcake)
+  else:
+    return "Sorry cupcake not found"
+  
 
 @app.route("/order")
 def order():

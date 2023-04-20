@@ -5,9 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../static/style.css">
-  <title>Cupcake Store</title>
+  <title>{{cupcake["name"]}}</title>
 </head>
 <body>
-  <h1>Cupcake</h1>
+  <header>
+    <a href="{{url_for('home')}}"><h1>{{cupcake["name"]}}</h1></a>
+  </header>
 </body>
 </html>
