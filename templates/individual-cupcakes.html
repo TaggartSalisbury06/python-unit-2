@@ -9,7 +9,18 @@
 </head>
 <body>
   <header>
-    <a href="{{url_for('home')}}"><h1>{{cupcake["name"]}}</h1></a>
+    <a href="{{url_for('home')}}"><h1>Cupcake Store</h1></a>
   </header>
+      <div class="cupcake-container">
+        <h2>{{cupcake["name"]}}</h2>
+        <h4>Flavor: {{cupcake["flavor"]}}</h4>
+        <h4>Frosting: {{cupcake["frosting"]}}</h4>
+        <h4>Sprinkles: {{cupcake["sprinkles"]}}</h4>
+        <h4>Filling: {{cupcake["filling"]}}</h4>
+        <h4><b>Price: ${{cupcake["price"]}}</b></h4>
+        <a href="{{url_for('add_cupcake', name=cupcake['name'])}}">
+          <button>Add to Cart</button>
+        </a>
+      </div>
 </body>
 </html>
