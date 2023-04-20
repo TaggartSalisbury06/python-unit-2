@@ -94,13 +94,17 @@ def get_all_cupcakes(file):
     reader = list(reader)
     return reader
 
-def get_a_cupcake(file):
-  for cupcake in get_cupcake(file):
+def find_cupcake(file, name):
+  for cupcake in get_all_cupcakes(file):
     if cupcake["name"] == name:
       return cupcake
   return None
 
-
+def add_cupcake_dictionary(file, cupcake):
+  with open(file, "a", newline="\n") as csvfile:
+    fieldnames = ["size", "name", "price", "flavor", "frosting", "sprinkles", "filling"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writerow(cupcake)
 
 def read_csv(file):
   with open(file) as csvfile:

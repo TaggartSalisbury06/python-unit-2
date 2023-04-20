@@ -1,0 +1,4 @@
+size,name,price,flavor,frosting,spinkles,filling
+regular,Stars and Stripes,2.99,Vanilla,Vanilla,"['Red', 'White', 'Blue', 'Chocolate']",Chocolate
+regular,Stars and Stripes,2.99,Vanilla,Vanilla,"['Red', 'White', 'Blue', 'Chocolate']",Chocolate
+regular,Triple Chocolate,2.99,Chocolate,Chocolate,[],Chocolate

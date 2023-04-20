@@ -1,0 +1,35 @@
+/* Default styles for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the cupcake container */
+.cupcake-container {
+  color: pink;
+  background-color: #000000;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Styles for the cupcake name */
+.cupcake-container h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the cupcake flavor and frosting */
+.cupcake-container h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Styles for the cupcake price */
+.cupcake-container h4 b {
+  color: #f00;
+  font-size: 20px;
+}
