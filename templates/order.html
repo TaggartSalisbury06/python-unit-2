@@ -21,6 +21,9 @@
         <h2>{{cupcake[0]}}</h2>
         <h4>Qty: {{cupcake[2]}}</h4>
         <h4><b>Price: ${{cupcake[1]}}</b></h4>
+        <a href="{{url_for('delete_cupcake', name=cupcake['name'])}}">
+          <button>Remove From Cart</button>
+        </a>
       </div>
     {%endfor%}
   

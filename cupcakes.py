@@ -105,6 +105,21 @@ def add_cupcake_dictionary(file, cupcake):
     fieldnames = ["size", "name", "price", "flavor", "frosting", "sprinkles", "filling"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writerow(cupcake)
+    
+
+def remove_cupcake_dictionary(file, cupcake):
+  rows = []
+  with open(file, "r") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+      if row["name"] != cupcake["name"]:
+        rows.append(row)
+    with open(file, "w", newline="\n") as csvfile:
+      fieldnames = ["size", "name", "price", "flavor", "frosting", "sprinkles", "filling"]
+      writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+      writer.writeheader()
+      for row in rows:
+        writer.writerow(row)
 
 def read_csv(file):
   with open(file) as csvfile:

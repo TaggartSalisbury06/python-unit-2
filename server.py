@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, redirect
-from cupcakes import get_all_cupcakes, find_cupcake, add_cupcake_dictionary
+from cupcakes import get_all_cupcakes, find_cupcake, add_cupcake_dictionary, remove_cupcake_dictionary
 
 app = Flask(__name__)
 
@@ -41,6 +41,16 @@ def add_cupcake(name):
 
   if cupcake:
     add_cupcake_dictionary("order.csv", cupcake)
+    return redirect(url_for("home"))
+  else:
+    return "Sorry cupcake not found"
+
+@app.route("/delete-cupcake/<name>")
+def delete_cupcake(name):
+  cupcake = find_cupcake("order.csv", name)
+
+  if cupcake:
+    remove_cupcake_dictionary("order.csv", cupcake)
     return redirect(url_for("home"))
   else:
     return "Sorry cupcake not found"
