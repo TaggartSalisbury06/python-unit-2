@@ -23,7 +23,17 @@ def individual_cupcakes(name):
 
 @app.route("/order")
 def order():
-  return render_template("order.html", cupcakes = get_all_cupcakes("order.csv"))
+  order_total = round(sum([float(x["price"]) for x in get_all_cupcakes("order.csv")]), 2)
+  cupcakes=get_all_cupcakes("order.csv")
+
+  cupcakes_counted = []
+  cupcake_set = set()
+
+  for cupcake in cupcakes:
+      cupcake_set.add((cupcake["name"], cupcake["price"], cupcakes.count(cupcake)))
+
+
+  return render_template("order.html", cupcakes=cupcake_set, order_total=order_total, items_num = len(get_all_cupcakes("order.csv")))
 
 @app.route("/add-cupcake/<name>")
 def add_cupcake(name):

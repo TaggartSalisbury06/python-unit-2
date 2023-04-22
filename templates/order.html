@@ -8,13 +8,19 @@
   <title>Cupcake Store</title>
 </head>
 <body>
-  <header><a href="{{url_for('home')}}"><h1>Cupcake Order</h1></a></header>
+  <header>
+    <a href="{{url_for('home')}}"><h1>Cupcake Order</h1></a>
+    <a  href="{{url_for('order')}}">
+      <button>Cart - {{items_num}}</button>
+    </a><br>
+    <h7>Total: ${{order_total}}</h7>
+  </header>
     {%for cupcake in cupcakes%}
       <div class="cupcake-container">
         <a href="{{url_for('individual_cupcakes', name=cupcake['name'])}}"><h3>{{cupcake["name"]}}</h3></a>
-        <h4>Flavor: {{cupcake["flavor"]}}</h4>
-        <h4>Frosting: {{cupcake["frosting"]}}</h4>
-        <h4><b>Price: ${{cupcake["price"]}}</b></h4>
+        <h2>{{cupcake[0]}}</h2>
+        <h4>Qty: {{cupcake[2]}}</h4>
+        <h4><b>Price: ${{cupcake[1]}}</b></h4>
       </div>
     {%endfor%}
   
